@@ -1,14 +1,4 @@
-# Provider :
-provider "aws" {
-    region = var.AWS_REGION
-}
-
-# Create incremental instance:
-resource "aws_instance" "apache_instance" {
-  count         = var.instance_data.count
-  ami           = var.instance_data.ami
-  instance_type = var.instance_data.type
-  tags = {
-    Name  = "https_server_${count.index}"
-  }
+resource "aws_instance" "ec2_instance" {
+    ami = "ami-052c08d70def0ac62"
+    instance_type = "t2.micro"
 }
